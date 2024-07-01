@@ -1,7 +1,7 @@
 import argparse
 import logging
 
-from fingerprint_db import cluster_fingerprint_db, compare_fingerprint_db, update_fingerprint_db, efficient_compare_fingerprint_db
+from fingerprint_db import cluster_fingerprint_db, compare_fingerprint_db, update_fingerprint_db
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.DEBUG)
 
@@ -46,8 +46,8 @@ if __name__ == '__main__':
         '-r', '--cluster', action='store_true', help='Cluster samples in database'
     )
 
-    parser.add_argument('-s', '--shred-size', help='Shred size', default=12, type=int)
-    parser.add_argument('-w', '--window-size', help='Window size', default=16, type=int)
+    parser.add_argument('-s', '--shred-size', help='Shred size', default=16, type=int)
+    parser.add_argument('-w', '--window-size', help='Window size', default=12, type=int)
     parser.add_argument('--fp-size', help='Fingerprint size (in KB)', default=32, type=int)
     parser.add_argument('-d', '--db', help='Set database path', default='.', type=str)
     parser.add_argument(
