@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pybitshred"
+version = "0.1.1"
+authors = [
+    { name="Jerry Yang", email="jerry871002@gmail.com" }
+]
+description = "A tool for large-scale malware similarity analysis and clustering"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Security"
+]
+dependencies = [
+    "pefile==2023.2.7",
+    "psutil==6.0.0"
+]
+
+[project.scripts]
+pybitshred = "pybitshred.bitshred:main"
+
+[project.urls]
+Homepage = "https://github.com/jerry871002/pybitshred"
+Issues = "https://github.com/jerry871002/pybitshred/issues"

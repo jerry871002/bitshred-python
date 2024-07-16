@@ -11,9 +11,9 @@ from typing import Callable
 
 import psutil
 
-from binary_file import BinaryFile, initailaize_binary_file
-from fingerprint import Fingerprint, create_fingerprint, fingerprint_encoder, jaccard_distance
-from utils import djb2_hash
+from .binary_file import BinaryFile, initailaize_binary_file
+from .fingerprint import Fingerprint, create_fingerprint, fingerprint_encoder, jaccard_distance
+from .utils import djb2_hash
 
 FINGERPRINT_BASE = 'fingerprints'
 JACCARD_BASE = 'jaccard'
