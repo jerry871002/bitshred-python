@@ -1,12 +1,14 @@
 import argparse
 import logging
 
-from fingerprint_db import cluster_fingerprint_db, compare_fingerprint_db, update_fingerprint_db
+from .fingerprint_db import cluster_fingerprint_db, compare_fingerprint_db, update_fingerprint_db
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.DEBUG)
 
 
-def main(args: argparse.Namespace) -> None:
+def main() -> None:
+    args = parse_cli_arguments()
+
     if args.binary or args.raw:
         update_fingerprint_db(
             binary=args.binary,
@@ -22,8 +24,7 @@ def main(args: argparse.Namespace) -> None:
     elif args.cluster:
         cluster_fingerprint_db(args.db, args.jacard)
 
-
-if __name__ == '__main__':
+def parse_cli_arguments() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description='BitShred reimplementation in Python')
 
     execution_mode = parser.add_mutually_exclusive_group(required=True)
@@ -55,6 +56,8 @@ if __name__ == '__main__':
     )
     parser.add_argument('-j', '--jacard', help='Set Jaccard threshold', default=0.6, type=float)
 
-    args = parser.parse_args()
+    return parser.parse_args()
 
-    main(args)
+
+if __name__ == '__main__':
+    main()

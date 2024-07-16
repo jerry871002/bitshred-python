@@ -2,7 +2,7 @@ import reprlib
 from dataclasses import dataclass
 from typing import Literal
 
-from utils import bit_count, bit_vector_set
+from .utils import bit_count, bit_vector_set
 
 
 @dataclass
