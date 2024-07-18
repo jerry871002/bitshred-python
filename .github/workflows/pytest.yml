@@ -24,4 +24,4 @@ jobs:
         pip install pytest pytest-cov
         pip install .
     - name: Test with pytest
-      run: pytest --cov=pybitshred
+      run: pytest --cov=pybitshred --cov-report term-missing

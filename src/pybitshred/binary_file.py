@@ -27,6 +27,7 @@ class Address:
             raise TypeError(error_msg)
 
     def __eq__(self, other: object) -> bool:
+        # if a.__eq__(b) returns NotImplemented, then Python tries b.__eq__(a)
         if not isinstance(other, Address):
             return NotImplemented
         return self.address == other.address
@@ -52,7 +53,7 @@ class BinaryFile:
     sections: list[Section]
 
 
-def initailaize_binary_file(file_path: str) -> BinaryFile | None:
+def initialize_binary_file(file_path: str) -> BinaryFile | None:
     try:
         pe = pefile.PE(file_path)
     except pefile.PEFormatError:
