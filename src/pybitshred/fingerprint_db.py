@@ -11,7 +11,7 @@ from typing import Callable
 
 import psutil
 
-from .binary_file import BinaryFile, initailaize_binary_file
+from .binary_file import BinaryFile, initialize_binary_file
 from .fingerprint import Fingerprint, create_fingerprint, fingerprint_encoder, jaccard_distance
 from .utils import djb2_hash
 
@@ -281,7 +281,7 @@ def cluster_fingerprint_db(db: str, jacard_threshold: float) -> None:
 def process_executable(
     sample: str, shred_size: int, window_size: int, fp_size: int, all_sec: bool
 ) -> Fingerprint | None:
-    binary_file = initailaize_binary_file(sample)
+    binary_file = initialize_binary_file(sample)
     if not binary_file:
         return None
 
